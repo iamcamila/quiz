@@ -2,14 +2,12 @@ import { Flex, HStack, Image, Stack, Text } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import { FiCheckCircle, FiXCircle } from "react-icons/fi";
 import { CorrectOptions, WrongOptions } from "../gifs";
+import { randomNumber } from '../utils';
 
 export const Gif = (props) => {
   const { isCorrect } = props;
   const wrongOptions = WrongOptions();
   const correctOptions = CorrectOptions();
-  const randomNumber = (total) => {
-    return Math.floor(Math.random() * total);
-  };
 
   return (
     <>

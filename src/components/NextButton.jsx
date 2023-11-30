@@ -1,15 +1,33 @@
 import { Button, HStack, keyframes } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import { FiChevronsRight } from "react-icons/fi";
+import { randomNumber } from "../utils";
+
+const usedQuestions = [];
+
+const check = (random, total) =>{
+  console.log('random',random);
+  const includes = usedQuestions.includes(random)
+  if(!includes){
+    return random;
+  }else{
+    const number = randomNumber(total)
+    return check(number, total)
+  }
+}
 
 
 export const NextButton = (props) => {
   const {isCorrect, currentQuestion, totalQuestion, setIsCorrect, setCurrentQuestion} = props
-
   const handleNext = () => {
     setIsCorrect(null);
-    if (currentQuestion !== totalQuestion) {
-      setCurrentQuestion((prev) => prev + 1);
+    usedQuestions.push(currentQuestion)
+    if(usedQuestions.length < totalQuestion){
+      const newNumber = randomNumber(totalQuestion)
+      const random = check(newNumber,totalQuestion) 
+      setCurrentQuestion(random);
+    }else{
+      console.log('Acabou')
     }
   };
   const hover = keyframes`

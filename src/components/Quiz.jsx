@@ -7,6 +7,7 @@ import C from "../gifs/ballC.png";
 import D from "../gifs/ballD.png";
 import E from "../gifs/ballE.png";
 import Background from "../gifs/fundo.jpg";
+import { randomNumber } from "../utils";
 import { BackButton } from "./BackButton";
 import { ConfirmButton } from "./ConfirmButton";
 import { Gif } from "./Gif";
@@ -15,9 +16,14 @@ import { NextButton } from "./NextButton";
 const options = [A, B, C, D, E];
 
 export const Quiz = (props) => {
-  const [currentQuestion, setCurrentQuestion] = useState(1);
+
+  // Index da questão que será utilizada
+  const [currentQuestion, setCurrentQuestion] = useState(randomNumber(props.questions.length));
+  // Index da opção selecionada
   const [currentIndex, setCurrentIndex] = useState(null);
+  
   const [isCorrect, setIsCorrect] = useState(null);
+  const [isDisabled, setIsDisabled] = useState(true);
   const { question, choices, correctAnswer } = props.questions[currentQuestion];
 
   return (
@@ -58,7 +64,10 @@ export const Quiz = (props) => {
                 fontFamily="Indie Flower"
                 bg="#f8f7f3"
                 color="#495730"
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => {
+                  setCurrentIndex(index);
+                  setIsDisabled(false);
+                }}
                 gap={2}
                 borderRadius="10px"
                 justifyContent="flex-start"
@@ -71,20 +80,21 @@ export const Quiz = (props) => {
             ))}
           </SimpleGrid>
           <ConfirmButton
-            isCorrect={isCorrect}
+            isDisabled={isDisabled}
             currentIndex={currentIndex}
             choices={choices}
             correctAnswer={correctAnswer}
             setIsCorrect={setIsCorrect}
+            setIsDisabled={setIsDisabled}
           />
         </Stack>
-          <NextButton
-            isCorrect={isCorrect}
-            currentQuestion={currentQuestion}
-            setIsCorrect={setIsCorrect}
-            totalQUestions={props.questions.lenght - 1}
-            setCurrentQuestion={setCurrentQuestion}
-          />
+        <NextButton
+          isCorrect={isCorrect}
+          currentQuestion={currentQuestion}
+          totalQuestion={props.questions.length}
+          setIsCorrect={setIsCorrect}
+          setCurrentQuestion={setCurrentQuestion}
+        />
         <Gif isCorrect={isCorrect} />
       </Stack>
     </Flex>
