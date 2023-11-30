@@ -1,11 +1,11 @@
 import { Flex, HStack, Image, Stack, Text } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import { FiCheckCircle, FiXCircle } from "react-icons/fi";
-import { CorrectOptions, WrongOptions } from "../gifs";
+import { CorrectOptions, WrongOptions } from "../assets/images";
 import { randomNumber } from '../utils';
 
 export const Gif = (props) => {
-  const { isCorrect } = props;
+  const { isCorrect, comments } = props;
   const wrongOptions = WrongOptions();
   const correctOptions = CorrectOptions();
 
@@ -44,6 +44,9 @@ export const Gif = (props) => {
               {isCorrect ? "Correta" : "Incorreta"}
             </Text>
           </HStack>
+          <Text fontSize="16px" fontWeight={600} color="white" mb={6} mx={10} textAlign='justify'>
+            {comments}
+          </Text>
           <Image
             src={
               isCorrect
@@ -51,7 +54,7 @@ export const Gif = (props) => {
                 : wrongOptions[randomNumber(correctOptions.length)]
             }
             borderRadius="10%"
-            width="60%"
+            width={comments ? '40%': "60%"}
             alignSelf="center"
           />
         </Stack>
@@ -62,4 +65,5 @@ export const Gif = (props) => {
 
 Gif.propTypes = {
   isCorrect: PropTypes.bool,
+  comments: PropTypes.string,
 };

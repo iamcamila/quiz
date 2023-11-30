@@ -1,30 +1,24 @@
 import { Button, Flex, HStack, Image, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import { useState } from "react";
-import A from "../gifs/ballA.png";
-import B from "../gifs/ballB.png";
-import C from "../gifs/ballC.png";
-import D from "../gifs/ballD.png";
-import E from "../gifs/ballE.png";
-import Background from "../gifs/fundo.jpg";
+import { Options } from "../assets/images/";
+import Background from "../assets/images/backgrounds/fundo.jpg";
 import { randomNumber } from "../utils";
 import { BackButton } from "./BackButton";
 import { ConfirmButton } from "./ConfirmButton";
 import { Gif } from "./Gif";
 import { NextButton } from "./NextButton";
 
-const options = [A, B, C, D, E];
+const options = Options();
 
 export const Quiz = (props) => {
-
-  // Index da questão que será utilizada
   const [currentQuestion, setCurrentQuestion] = useState(randomNumber(props.questions.length));
-  // Index da opção selecionada
   const [currentIndex, setCurrentIndex] = useState(null);
-  
+
   const [isCorrect, setIsCorrect] = useState(null);
   const [isDisabled, setIsDisabled] = useState(true);
-  const { question, choices, correctAnswer } = props.questions[currentQuestion];
+  const { question, choices, correctAnswer, questionImage, comments } =
+    props.questions[currentQuestion];
 
   return (
     <Flex
@@ -51,6 +45,9 @@ export const Quiz = (props) => {
           <Text fontSize="36px" fontFamily="Indie Flower" fontWeight={700} color="#495730" mb={6}>
             {question}
           </Text>
+          {questionImage && (
+            <Image mb={2} borderRadius={10} alignSelf="center" w="45%" src={questionImage} />
+          )}
           <SimpleGrid columns={2} rowGap={6} justifyItems="center" mb={5}>
             {choices.map((item, index) => (
               <HStack
@@ -95,7 +92,7 @@ export const Quiz = (props) => {
           setIsCorrect={setIsCorrect}
           setCurrentQuestion={setCurrentQuestion}
         />
-        <Gif isCorrect={isCorrect} />
+        <Gif isCorrect={isCorrect} comments={comments} />
       </Stack>
     </Flex>
   );
@@ -105,9 +102,11 @@ Quiz.propTypes = {
   questions: [
     {
       question: PropTypes.string,
+      questionImage: PropTypes.any,
       choices: PropTypes.arrayOf(PropTypes.string),
       type: PropTypes.string,
       correctAnswer: PropTypes.string,
+      comments: PropTypes.string,
     },
   ],
 };

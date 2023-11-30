@@ -1,6 +1,6 @@
-import { ChakraProvider } from "@chakra-ui/react"
-import { quizLibrary } from "./assets/quizLibrary"
-import { Quiz } from "./components"
+import { ChakraProvider } from "@chakra-ui/react";
+import { quizLibrary } from "./assets/quizLibrary";
+import { Quiz } from "./components";
 function App() {
   return (
     <ChakraProvider>
