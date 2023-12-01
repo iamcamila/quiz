@@ -1,4 +1,13 @@
-import { Button, Flex, HStack, Image, SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import {
+  Button,
+  ButtonGroup,
+  Flex,
+  HStack,
+  Image,
+  SimpleGrid,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { Options } from "../assets/images/";
@@ -6,19 +15,30 @@ import Background from "../assets/images/backgrounds/fundo.jpg";
 import { randomNumber } from "../utils";
 import { BackButton } from "./BackButton";
 import { ConfirmButton } from "./ConfirmButton";
+import { GameButton } from "./GameButton";
+import { Games } from "./Games";
 import { Gif } from "./Gif";
 import { NextButton } from "./NextButton";
+import { PayButton } from "./PayButton";
 
 const options = Options();
 
 export const Quiz = (props) => {
   const [currentQuestion, setCurrentQuestion] = useState(randomNumber(props.questions.length));
   const [currentIndex, setCurrentIndex] = useState(null);
-
   const [isCorrect, setIsCorrect] = useState(null);
+  const [showAnswer, setShowAnswer] = useState(false);
+  const [showGame, setShowGame] = useState(false);
+  const [payButton, setPayButton] = useState(true);
   const [isDisabled, setIsDisabled] = useState(true);
   const { question, choices, correctAnswer, questionImage, comments } =
     props.questions[currentQuestion];
+
+  const rightIndex = choices
+    .map((option, index) => {
+      if (option === correctAnswer) return index;
+    })
+    .filter((item) => item !== undefined)[0];
 
   return (
     <Flex
@@ -59,8 +79,8 @@ export const Quiz = (props) => {
                 fontSize="large"
                 fontWeight={600}
                 fontFamily="Indie Flower"
-                bg="#f8f7f3"
-                color="#495730"
+                bg={showAnswer && rightIndex === index ? "#495730" : "#f8f7f3"}
+                color={showAnswer && rightIndex === index ? "#e9e8ea" : "#495730"}
                 onClick={() => {
                   setCurrentIndex(index);
                   setIsDisabled(false);
@@ -76,14 +96,24 @@ export const Quiz = (props) => {
               </HStack>
             ))}
           </SimpleGrid>
-          <ConfirmButton
-            isDisabled={isDisabled}
-            currentIndex={currentIndex}
-            choices={choices}
-            correctAnswer={correctAnswer}
-            setIsCorrect={setIsCorrect}
-            setIsDisabled={setIsDisabled}
-          />
+          <ButtonGroup justifyContent="space-between">
+            {payButton && <PayButton setShowAnswer={setShowAnswer} setPayButton={setPayButton} />}
+            {!payButton && (
+              <GameButton
+                setShowAnswer={setShowAnswer}
+                setPayButton={setPayButton}
+                setShowGame={setShowGame}
+              />
+            )}
+            <ConfirmButton
+              isDisabled={isDisabled}
+              currentIndex={currentIndex}
+              choices={choices}
+              correctAnswer={correctAnswer}
+              setIsCorrect={setIsCorrect}
+              setIsDisabled={setIsDisabled}
+            />
+          </ButtonGroup>
         </Stack>
         <NextButton
           isCorrect={isCorrect}
@@ -91,8 +121,11 @@ export const Quiz = (props) => {
           totalQuestion={props.questions.length}
           setIsCorrect={setIsCorrect}
           setCurrentQuestion={setCurrentQuestion}
+          showGame={showGame}
+          setShowGame={setShowGame}
         />
         <Gif isCorrect={isCorrect} comments={comments} />
+        {showGame && <Games />}
       </Stack>
     </Flex>
   );
