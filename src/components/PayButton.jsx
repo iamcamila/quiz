@@ -5,12 +5,12 @@ export const PayButton = (props) => {
   const { setShowAnswer, setPayButton } = props;
 
   const showAnswer = () => {
-    setShowAnswer(true)
-    setPayButton(false)
+    setShowAnswer(true);
+    setPayButton(false);
   };
   return (
     <Button
-      w="40%"
+      w="45%"
       fontFamily="Indie Flower"
       bg="#e9e8ea"
       color="#495730"

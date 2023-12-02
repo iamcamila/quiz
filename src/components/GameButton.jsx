@@ -5,13 +5,13 @@ export const GameButton = (props) => {
   const { setShowAnswer, setPayButton, setShowGame } = props;
 
   const handleClick = () => {
-    setShowAnswer(false)
-    setPayButton(true)
-    setShowGame(true)
+    setShowAnswer(false);
+    setPayButton(true);
+    setShowGame(true);
   };
   return (
     <Button
-      w="40%"
+      w="45%"
       fontFamily="Indie Flower"
       bg="#e9e8ea"
       color="#495730"

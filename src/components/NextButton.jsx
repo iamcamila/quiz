@@ -16,10 +16,18 @@ const check = (random, total) => {
 };
 
 export const NextButton = (props) => {
-  const { isCorrect, currentQuestion, totalQuestion, setIsCorrect, setCurrentQuestion, showGame, setShowGame } = props;
+  const {
+    isCorrect,
+    currentQuestion,
+    totalQuestion,
+    setIsCorrect,
+    setCurrentQuestion,
+    showGame,
+    setShowGame,
+  } = props;
   const handleNext = () => {
     setIsCorrect(null);
-    setShowGame(false)
+    setShowGame(false);
     usedQuestions.push(currentQuestion);
     if (usedQuestions.length < totalQuestion) {
       const newNumber = randomNumber(totalQuestion);
@@ -38,11 +46,11 @@ export const NextButton = (props) => {
   }`;
 
   return (
-    isCorrect !== null || showGame && (
+    (isCorrect !== null || showGame) && (
       <HStack
         as={Button}
         bg="transparent"
-        color={showGame ? "red": "#f8f7f3"}
+        color={showGame ? "red" : "#f8f7f3"}
         _hover={{
           bg: "transparent",
           transform: "translateX(0%)",
