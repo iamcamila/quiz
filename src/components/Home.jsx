@@ -1,11 +1,10 @@
-import { Flex, Image, SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import { Flex, Image, SimpleGrid, Stack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { noel } from "../assets/images";
 import Background from "../assets/images/backgrounds/fundo6.jpg";
-import Movie from "../assets/images/movie.png";
-import Quiz from "../assets/images/quiz.png";
-import Songs from "../assets/images/songs.png";
 
 export const Home = () => {
+  const noels = noel();
   return (
     <Flex
       w="full"
@@ -27,19 +26,17 @@ export const Home = () => {
           h="65%"
           justifySelf="center"
           alignSelf="flex-end"
+          _hover={{
+            bg: "rgba(193,11,032,0.8)",
+            boxShadow: "0 4px 16px 0 rgba(193,11,32,0.5)",
+            transform: "scale(1.1)",
+          }}
         >
-          <Text
-            color="white"
-            fontFamily="Indie Flower"
-            fontWeight={700}
-            fontSize="32px"
-            alignSelf="center"
-          >
-            QUIZ
-          </Text>
-          <Image src={Quiz} w="50%" h="75%" alignSelf="center" />
+          <Image src={noels[0]} w="75%" h="90%" alignSelf="center" />
         </Stack>
         <Stack
+          as={Link}
+          to="/song"
           bg="rgba(32, 45, 84, 0.6)"
           justifyContent="center"
           borderRadius={4}
@@ -48,17 +45,13 @@ export const Home = () => {
           h="65%"
           justifySelf="center"
           alignSelf="flex-end"
+          _hover={{
+            bg: "rgba(193,11,032,0.8)",
+            boxShadow: "0 4px 16px 0 rgba(193,11,32,0.5)",
+            transform: "scale(1.1)",
+          }}
         >
-          <Text
-            color="white"
-            fontFamily="Indie Flower"
-            fontWeight={700}
-            fontSize="32px"
-            alignSelf="center"
-          >
-            FILME EMOJI
-          </Text>
-          <Image src={Movie} w="50%" h="75%" alignSelf="center" />
+          <Image src={noels[1]} w="75%" h="90%" alignSelf="center" />
         </Stack>
         <Stack
           bg="rgba(32, 45, 84, 0.6)"
@@ -69,19 +62,17 @@ export const Home = () => {
           h="65%"
           justifySelf="center"
           alignSelf="flex-start"
+          _hover={{
+            bg: "rgba(193,11,032,0.8)",
+            boxShadow: "0 4px 16px 0 rgba(193,11,32,0.5)",
+            transform: "scale(1.1)",
+          }}
         >
-          <Text
-            color="white"
-            fontFamily="Indie Flower"
-            fontWeight={700}
-            fontSize="32px"
-            alignSelf="center"
-          >
-            QUAL É A MÚSICA?
-          </Text>
-          <Image src={Songs} w="60%" h="70%" alignSelf="center" />
+          <Image src={noels[2]} w="75%" h="90%" alignSelf="center" />
         </Stack>
         <Stack
+          as={Link}
+          to="/quiz"
           bg="rgba(32, 45, 84, 0.6)"
           justifyContent="center"
           borderRadius={4}
@@ -90,17 +81,13 @@ export const Home = () => {
           h="65%"
           justifySelf="center"
           alignSelf="flex-start"
+          _hover={{
+            bg: "rgba(193,11,032,0.8)",
+            boxShadow: "0 4px 16px 0 rgba(193,11,32,0.5)",
+            transform: "scale(1.1)",
+          }}
         >
-          <Text
-            color="white"
-            fontFamily="Indie Flower"
-            fontWeight={700}
-            fontSize="32px"
-            alignSelf="center"
-          >
-            QUAL É A MÚSICA?
-          </Text>
-          <Image src={Songs} w="60%" h="70%" alignSelf="center" />
+          <Image src={noels[3]} w="75%" h="90%" alignSelf="center" />
         </Stack>
       </SimpleGrid>
     </Flex>

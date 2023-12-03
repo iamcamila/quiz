@@ -1,7 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { Route, Routes } from "react-router-dom";
 import { quizLibrary } from "./assets/quizLibrary";
-import { Home, Quiz } from "./components";
+import { Home, Quiz, SongGame } from "./components";
 function App() {
   return (
     <ChakraProvider>
@@ -9,7 +9,7 @@ function App() {
         <Route path="/">
           <Route index element={<Home />} />
           <Route path="quiz" element={<Quiz questions={quizLibrary.questions} />} />
-          <Route path="song" element={<Home />} />
+          <Route path="song" element={<SongGame />} />
           <Route path="movie" element={<Home />} />
           <Route path="words" element={<Home />} />
         </Route>
