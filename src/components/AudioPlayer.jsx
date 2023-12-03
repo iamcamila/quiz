@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { FiPause, FiPlay } from "react-icons/fi";
 
 export const AudioPlayer = (props) => {
-  const { song } = props;
+  const { song, correctAnswer } = props;
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -24,9 +24,6 @@ export const AudioPlayer = (props) => {
 
   useEffect(() => {
     audioRef.current.addEventListener("timeupdate", handleTimeUpdate);
-    return () => {
-      audioRef.current.removeEventListener("timeupdate", handleTimeUpdate);
-    };
   }, []);
   const handleToggle = () => {
     setIsPlaying((prev) => !prev);
@@ -50,7 +47,7 @@ export const AudioPlayer = (props) => {
       alignSelf="center"
       p={2}
     >
-      <Text fontSize="24px">Nome da música e cantor</Text>
+      <Text fontSize="24px">{correctAnswer}</Text>
 
       <audio src={song} ref={audioRef} type="audio/mpeg" />
       <HStack w="100%" justifyContent="center">
@@ -58,7 +55,6 @@ export const AudioPlayer = (props) => {
         <Input
           type="range"
           min={0}
-          defaultValue={0}
           onChange={handleSeek}
           max={duration}
           value={currentTime}
@@ -85,4 +81,5 @@ export const AudioPlayer = (props) => {
 
 AudioPlayer.propTypes = {
   song: PropTypes.any,
+  correctAnswer: PropTypes.string,
 };

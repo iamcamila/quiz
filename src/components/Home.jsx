@@ -54,7 +54,9 @@ export const Home = () => {
           <Image src={noels[1]} w="75%" h="90%" alignSelf="center" />
         </Stack>
         <Stack
+          as={Link}
           bg="rgba(32, 45, 84, 0.6)"
+          to="/movie"
           justifyContent="center"
           borderRadius={4}
           boxShadow="dark-lg"
@@ -72,7 +74,7 @@ export const Home = () => {
         </Stack>
         <Stack
           as={Link}
-          to="/quiz"
+          to="/"
           bg="rgba(32, 45, 84, 0.6)"
           justifyContent="center"
           borderRadius={4}

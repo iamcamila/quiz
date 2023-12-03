@@ -1,22 +1,21 @@
-import { Flex, HStack, Stack, Text } from "@chakra-ui/react";
+import { Flex, HStack, Image, Stack, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import Background from "../assets/images/backgrounds/fundo.jpg";
-import { musicLibrary } from "../assets/musicLibrary";
+import { moviesLibrary } from "../assets/moviesLibrary";
 import { randomNumber } from "../utils";
-import { AudioPlayer } from "./AudioPlayer";
 import { BackButton } from "./BackButton";
-import { NextSong } from "./NextSong";
+import { NextMovie } from "./NextMovie";
 
-const songs = musicLibrary.songs;
+const movies = moviesLibrary.movies;
 
-export const SongGame = () => {
-  const [showWord, setShowWord] = useState(false);
-  const [showSentence, setShowSentence] = useState(false);
-  const [showSinger, setShowSinger] = useState(false);
+export const MovieGame = () => {
+  const [showHint, setShowHint] = useState(false);
+  const [showGenre, setShowGenre] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(randomNumber(songs.length));
-  const { word, sentence, singer, song, correctAnswer } = songs[currentIndex];
+  const [currentIndex, setCurrentIndex] = useState(randomNumber(movies.length));
+  const { hint, genre, correctAnswer, image } = movies[currentIndex];
 
+  console.log(image);
   return (
     <Flex
       bgImage={Background} // trocar background
@@ -62,19 +61,10 @@ export const SongGame = () => {
           >
             {currentIndex}
           </Flex>
-          <Text fontSize="48px" fontFamily="Indie Flower" fontWeight={700} color="#495730" mb={6}>
-            Qual é a música?
+          <Text fontSize="48px" fontFamily="Indie Flower" fontWeight={700} color="#495730">
+            Qual o nome do filme?
           </Text>
-          <HStack onClick={() => setShowWord(true)}>
-            <Text
-              w="25%"
-              fontSize="36px"
-              fontFamily="Indie Flower"
-              fontWeight={700}
-              color="rgba(193,11,032,1)"
-            >
-              Palavra:
-            </Text>
+          <HStack onClick={() => setShowHint(true)}>
             <Text
               fontSize="36px"
               fontFamily="Indie Flower"
@@ -85,10 +75,10 @@ export const SongGame = () => {
               borderRadius="35px"
               py={2}
             >
-              {showWord ? word : "?"}
+              {showHint ? hint : "?"}
             </Text>
           </HStack>
-          <HStack onClick={() => setShowSentence(true)}>
+          <HStack onClick={() => setShowGenre(true)}>
             <Text
               w="25%"
               fontSize="36px"
@@ -96,7 +86,7 @@ export const SongGame = () => {
               fontWeight={700}
               color="rgba(193,11,032,1)"
             >
-              Frase:
+              Gênero:
             </Text>
             <Text
               fontSize="36px"
@@ -108,30 +98,7 @@ export const SongGame = () => {
               borderRadius="35px"
               py={2}
             >
-              {showSentence ? sentence : "?"}
-            </Text>
-          </HStack>
-          <HStack onClick={() => setShowSinger(true)}>
-            <Text
-              w="25%"
-              fontSize="36px"
-              fontFamily="Indie Flower"
-              fontWeight={700}
-              color="rgba(193,11,032,1)"
-            >
-              Cantor:
-            </Text>
-            <Text
-              fontSize="36px"
-              fontFamily="Indie Flower"
-              w="full"
-              fontWeight={700}
-              color="#495730"
-              bg="white"
-              borderRadius="35px"
-              py={2}
-            >
-              {showSinger ? singer : "?"}
+              {showGenre ? genre : "?"}
             </Text>
           </HStack>
           <HStack onClick={() => setShowAnswer(true)}>
@@ -142,10 +109,22 @@ export const SongGame = () => {
               fontWeight={700}
               color="rgba(193,11,032,1)"
             >
-              Música:
+              Filme:
             </Text>
             {showAnswer ? (
-              <AudioPlayer song={song} correctAnswer={correctAnswer} />
+              <Stack
+                fontSize="36px"
+                fontFamily="Indie Flower"
+                w="full"
+                fontWeight={700}
+                color="#495730"
+                bg="white"
+                borderRadius="35px"
+                py={2}
+              >
+                <Text>{correctAnswer}</Text>
+                <Image w="20%" borderRadius="24px" alignSelf="center" src={image} />
+              </Stack>
             ) : (
               <Text
                 fontSize="36px"
@@ -162,13 +141,12 @@ export const SongGame = () => {
             )}
           </HStack>
         </Stack>
-        <NextSong
+        <NextMovie
           setCurrentIndex={setCurrentIndex}
           setShowAnswer={setShowAnswer}
-          setShowSentence={setShowSentence}
-          setShowSinger={setShowSinger}
-          setShowWord={setShowWord}
-          total={songs.length}
+          setShowGenre={setShowGenre}
+          setShowHint={setShowHint}
+          total={movies.length}
           currentIndex={currentIndex}
         />
       </Stack>
@@ -176,4 +154,4 @@ export const SongGame = () => {
   );
 };
 
-SongGame.propTypes = {};
+MovieGame.propTypes = {};
