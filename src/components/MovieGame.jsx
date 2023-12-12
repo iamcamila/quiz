@@ -1,6 +1,6 @@
 import { Flex, HStack, Image, Stack, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import Background from "../assets/images/backgrounds/fundo.jpg";
+import Background from "../assets/images/backgrounds/fundoMovie.webp";
 import { moviesLibrary } from "../assets/moviesLibrary";
 import { randomNumber } from "../utils";
 import { BackButton } from "./BackButton";
@@ -34,6 +34,7 @@ export const MovieGame = () => {
         justifyContent="center"
         alignSelf="center"
         borderRadius={8}
+        overflow="hidden"
         gap={0}
       >
         <BackButton />
@@ -85,6 +86,7 @@ export const MovieGame = () => {
               fontFamily="Indie Flower"
               fontWeight={700}
               color="rgba(193,11,032,1)"
+              textAlign="start"
             >
               Gênero:
             </Text>
@@ -108,11 +110,12 @@ export const MovieGame = () => {
               fontFamily="Indie Flower"
               fontWeight={700}
               color="rgba(193,11,032,1)"
+              textAlign="start"
             >
               Filme:
             </Text>
             {showAnswer ? (
-              <Stack
+              <HStack
                 fontSize="36px"
                 fontFamily="Indie Flower"
                 w="full"
@@ -121,10 +124,11 @@ export const MovieGame = () => {
                 bg="white"
                 borderRadius="35px"
                 py={2}
+                justifyContent="center"
               >
                 <Text>{correctAnswer}</Text>
                 <Image w="20%" borderRadius="24px" alignSelf="center" src={image} />
-              </Stack>
+              </HStack>
             ) : (
               <Text
                 fontSize="36px"

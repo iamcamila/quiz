@@ -6,3 +6,4 @@ export * from "./Quiz";
 export * from "./NextButton";
 export * from "./Home";
 export * from "./SongGame";
+export * from "./MiniGames";

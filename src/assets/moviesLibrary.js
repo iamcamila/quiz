@@ -40,7 +40,7 @@ export const moviesLibrary = {
     {
       hint: "🍝🙏👩‍❤️‍👨",
       genre: "romance/comédia",
-      correctAnswer: "Comer Rezar Amar",
+      correctAnswer: "Comer, Rezar e Amar",
       image: movies[6],
     },
     {

@@ -1,7 +1,7 @@
 import { Flex, Image, SimpleGrid, Stack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { noel } from "../assets/images";
-import Background from "../assets/images/backgrounds/fundo6.jpg";
+import Background from "../assets/images/backgrounds/fundoHome.png";
 
 export const Home = () => {
   const noels = noel();
@@ -12,22 +12,21 @@ export const Home = () => {
       bgImage={Background}
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
+      justifyContent="center"
     >
-      <SimpleGrid ml="15%" my="5%" spacingY="5%" spacingX="6%" w="40%" columns={2}>
+      <SimpleGrid spacingY="5%" spacingX="6%" w="75%" mt="4%" columns={4}>
         <Stack
           as={Link}
           to="/quiz"
-          bg="rgba(32, 45, 84, 0.6)"
+          bg="rgba(231,253,255,0.5)"
           justifyContent="center"
           justifyItems="center"
           borderRadius={4}
-          boxShadow="dark-lg"
-          w="100%"
-          h="65%"
+          boxShadow="lg"
           justifySelf="center"
-          alignSelf="flex-end"
+          alignSelf="flex-start"
           _hover={{
-            bg: "rgba(193,11,032,0.8)",
+            bg: "rgba(231,70,63,0.8)",
             boxShadow: "0 4px 16px 0 rgba(193,11,32,0.5)",
             transform: "scale(1.1)",
           }}
@@ -37,16 +36,14 @@ export const Home = () => {
         <Stack
           as={Link}
           to="/song"
-          bg="rgba(32, 45, 84, 0.6)"
+          bg="rgba(231,253,255,0.5)"
           justifyContent="center"
           borderRadius={4}
-          boxShadow="dark-lg"
-          w="100%"
-          h="65%"
+          boxShadow="lg"
           justifySelf="center"
-          alignSelf="flex-end"
+          alignSelf="flex-start"
           _hover={{
-            bg: "rgba(193,11,032,0.8)",
+            bg: "rgba(231,70,63,0.8)",
             boxShadow: "0 4px 16px 0 rgba(193,11,32,0.5)",
             transform: "scale(1.1)",
           }}
@@ -55,17 +52,15 @@ export const Home = () => {
         </Stack>
         <Stack
           as={Link}
-          bg="rgba(32, 45, 84, 0.6)"
+          bg="rgba(231,253,255,0.5)"
           to="/movie"
           justifyContent="center"
           borderRadius={4}
-          boxShadow="dark-lg"
-          w="100%"
-          h="65%"
+          boxShadow="lg"
           justifySelf="center"
           alignSelf="flex-start"
           _hover={{
-            bg: "rgba(193,11,032,0.8)",
+            bg: "rgba(231,70,63,0.8)",
             boxShadow: "0 4px 16px 0 rgba(193,11,32,0.5)",
             transform: "scale(1.1)",
           }}
@@ -74,17 +69,16 @@ export const Home = () => {
         </Stack>
         <Stack
           as={Link}
-          to="/"
-          bg="rgba(32, 45, 84, 0.6)"
+          to="/games"
+          bg="rgba(231,253,255,0.5)"
+          border="none"
           justifyContent="center"
           borderRadius={4}
-          boxShadow="dark-lg"
-          w="100%"
-          h="65%"
+          boxShadow="lg"
           justifySelf="center"
           alignSelf="flex-start"
           _hover={{
-            bg: "rgba(193,11,032,0.8)",
+            bg: "rgba(231,70,63,0.8)",
             boxShadow: "0 4px 16px 0 rgba(193,11,32,0.5)",
             transform: "scale(1.1)",
           }}

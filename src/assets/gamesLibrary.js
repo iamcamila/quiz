@@ -91,6 +91,73 @@ export const gamesLibrary = {
       image: null,
       materials: ["barbante", "caneta", "garrafa"],
     },
+    {
+      title: "Lago das bolinhas",
+      description:
+        "O jogador deve sobrar a bolinha de modo a passar por todos os copos com água sem deixar cair. Ganha os pontos se completar a tarefa em menos de 1 minuto e 30 segundos",
+      image:
+        "https://i0.wp.com/www.tempojunto.com/wp-content/uploads/2019/09/brincadeira-de-1-minuto-para-criancas-carol-soprando-a-bolinha-pra-ir-para-o-outro-copo.jpg?resize=600%2C600&ssl=1",
+      materials: ["copo", "bolinha"],
+    },
+    {
+      title: "Desembaralhe a palavra",
+      description:
+        "A equipe deve desembaralhar as letras para formar a palavra correta. Ganha os pontos se completar a tarefa em menos de 3 minutos.",
+      image:
+        "https://i0.wp.com/www.tempojunto.com/wp-content/uploads/2019/09/gincana-simples-com-pistas-nos-baloes-1.jpg?w=381&ssl=1",
+      materials: ["papel", "caneta"],
+    },
+    {
+      title: "Joga a mãe pra ver se quica",
+      description:
+        "O jogador deve acertar a bolinha de ping pong no copo. A bolinha deve quicar uma vez antes de acertar o copo. Ganha os pontos se o jogador acertar 5 copos em menos de 2 minutos.",
+      image: null,
+      materials: ["copo", "bolinha"],
+    },
+    {
+      title: "Matemática da sorte",
+      description:
+        "É dado um número e um dado para a equipe. Utilizando os números que saem no dado e as operações básicas de soma, sutração, multiplicação e divisão, a equipe deve atingir o número fornecido. Ganha os pontos se a equipe completar a tarefa em menos de 3 minutos.",
+      image:
+        "joga o dado. pega o número e +-*/ com o valor que já tinha. se não deu ainda o resultado, joga o dado de novo e repete",
+      materials: ["dado", "papel", "caneta"],
+    },
+    // {
+    //   title: "",
+    //   description: "",
+    //   image: null,
+    //   materials: ["", ""],
+    // },
+    // {
+    //   title: "",
+    //   description: "",
+    //   image: null,
+    //   materials: ["", ""],
+    // },
+    // {
+    //   title: "",
+    //   description: "",
+    //   image: null,
+    //   materials: ["", ""],
+    // },
+    // {
+    //   title: "",
+    //   description: "",
+    //   image: null,
+    //   materials: ["", ""],
+    // },
+    // {
+    //   title: "",
+    //   description: "",
+    //   image: null,
+    //   materials: ["", ""],
+    // },
+    // {
+    //   title: "",
+    //   description: "",
+    //   image: null,
+    //   materials: ["", ""],
+    // },
     // {
     //   title: "",
     //   description: "",

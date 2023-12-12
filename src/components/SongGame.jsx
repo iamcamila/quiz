@@ -1,6 +1,6 @@
 import { Flex, HStack, Stack, Text } from "@chakra-ui/react";
 import { useState } from "react";
-import Background from "../assets/images/backgrounds/fundo.jpg";
+import Background from "../assets/images/backgrounds/fundoSong.jpg";
 import { musicLibrary } from "../assets/musicLibrary";
 import { randomNumber } from "../utils";
 import { AudioPlayer } from "./AudioPlayer";
@@ -19,7 +19,7 @@ export const SongGame = () => {
 
   return (
     <Flex
-      bgImage={Background} // trocar background
+      bgImage={Background}
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
       w="full"
@@ -36,6 +36,7 @@ export const SongGame = () => {
         alignSelf="center"
         borderRadius={8}
         gap={0}
+        overflow="hidden"
       >
         <BackButton />
         <Stack
@@ -44,7 +45,7 @@ export const SongGame = () => {
           h="100%"
           justifyContent="flex-start"
           alignSelf="center"
-          mt="5%"
+          mt="4%"
           gap={4}
         >
           <Flex
@@ -62,7 +63,7 @@ export const SongGame = () => {
           >
             {currentIndex}
           </Flex>
-          <Text fontSize="48px" fontFamily="Indie Flower" fontWeight={700} color="#495730" mb={6}>
+          <Text fontSize="48px" fontFamily="Indie Flower" fontWeight={700} color="#495730">
             Qual é a música?
           </Text>
           <HStack onClick={() => setShowWord(true)}>
@@ -72,6 +73,7 @@ export const SongGame = () => {
               fontFamily="Indie Flower"
               fontWeight={700}
               color="rgba(193,11,032,1)"
+              textAlign="start"
             >
               Palavra:
             </Text>
@@ -83,7 +85,7 @@ export const SongGame = () => {
               color="#495730"
               bg="white"
               borderRadius="35px"
-              py={2}
+              py={1}
             >
               {showWord ? word : "?"}
             </Text>
@@ -95,6 +97,7 @@ export const SongGame = () => {
               fontFamily="Indie Flower"
               fontWeight={700}
               color="rgba(193,11,032,1)"
+              textAlign="start"
             >
               Frase:
             </Text>
@@ -106,7 +109,7 @@ export const SongGame = () => {
               color="#495730"
               bg="white"
               borderRadius="35px"
-              py={2}
+              py={1}
             >
               {showSentence ? sentence : "?"}
             </Text>
@@ -118,6 +121,7 @@ export const SongGame = () => {
               fontFamily="Indie Flower"
               fontWeight={700}
               color="rgba(193,11,032,1)"
+              textAlign="start"
             >
               Cantor:
             </Text>
@@ -129,18 +133,19 @@ export const SongGame = () => {
               color="#495730"
               bg="white"
               borderRadius="35px"
-              py={2}
+              py={1}
             >
               {showSinger ? singer : "?"}
             </Text>
           </HStack>
-          <HStack onClick={() => setShowAnswer(true)}>
+          <HStack onClick={() => setShowAnswer(true)} mb={2}>
             <Text
               w="25%"
               fontSize="36px"
               fontFamily="Indie Flower"
               fontWeight={700}
               color="rgba(193,11,032,1)"
+              textAlign="start"
             >
               Música:
             </Text>

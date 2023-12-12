@@ -8,10 +8,10 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import PropTypes from "prop-types";
 import { useState } from "react";
 import { Options } from "../assets/images/";
 import Background from "../assets/images/backgrounds/fundo.jpg";
+import { quizLibrary1 } from "../assets/quizLibrary";
 import { randomNumber } from "../utils";
 import { BackButton } from "./BackButton";
 import { ConfirmButton } from "./ConfirmButton";
@@ -22,17 +22,17 @@ import { NextButton } from "./NextButton";
 import { PayButton } from "./PayButton";
 
 const options = Options();
+const questions = quizLibrary1.questions;
 
-export const Quiz = (props) => {
-  const [currentQuestion, setCurrentQuestion] = useState(randomNumber(props.questions.length));
+export const Quiz = () => {
+  const [currentQuestion, setCurrentQuestion] = useState(randomNumber(questions.length));
   const [currentIndex, setCurrentIndex] = useState(null);
   const [isCorrect, setIsCorrect] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
   const [showGame, setShowGame] = useState(false);
   const [payButton, setPayButton] = useState(true);
   const [isDisabled, setIsDisabled] = useState(true);
-  const { question, choices, correctAnswer, questionImage, comments } =
-    props.questions[currentQuestion];
+  const { question, choices, correctAnswer, questionImage, comments } = questions[currentQuestion];
 
   const rightIndex = choices
     .map((option, index) => {
@@ -77,6 +77,7 @@ export const Quiz = (props) => {
                 key={index}
                 w="80%"
                 fontSize="large"
+                whiteSpace="normal"
                 fontWeight={600}
                 fontFamily="Indie Flower"
                 bg={showAnswer && rightIndex === index ? "#495730" : "#f8f7f3"}
@@ -118,7 +119,7 @@ export const Quiz = (props) => {
         <NextButton
           isCorrect={isCorrect}
           currentQuestion={currentQuestion}
-          totalQuestion={props.questions.length}
+          totalQuestion={questions.length}
           setIsCorrect={setIsCorrect}
           setCurrentQuestion={setCurrentQuestion}
           showGame={showGame}
@@ -131,15 +132,4 @@ export const Quiz = (props) => {
   );
 };
 
-Quiz.propTypes = {
-  questions: [
-    {
-      question: PropTypes.string,
-      questionImage: PropTypes.any,
-      choices: PropTypes.arrayOf(PropTypes.string),
-      type: PropTypes.string,
-      correctAnswer: PropTypes.string,
-      comments: PropTypes.string,
-    },
-  ],
-};
+Quiz.propTypes = {};
