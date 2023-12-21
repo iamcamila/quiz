@@ -1,5 +1,6 @@
-import { Image, Stack, Text } from "@chakra-ui/react";
+import { HStack, Image, List, ListIcon, ListItem, Stack, Text } from "@chakra-ui/react";
 import PropTypes from "prop-types";
+import { FiCheck } from "react-icons/fi";
 import { gamesLibrary } from "../assets/gamesLibrary";
 import Lights from "../assets/images/lights.gif";
 import { randomNumber } from "../utils";
@@ -16,25 +17,55 @@ export const Games = () => {
         fontFamily="Indie Flower"
         alignSelf="center"
         fontWeight={800}
-        color="#495730"
+        color="#d64342"
         mb={6}
         mx={10}
         textAlign="justify"
       >
         {selectedGames.title}
       </Text>
-      <Text
+      <HStack
+        w="70%"
+        gap={4}
         fontSize="24px"
         fontFamily="Indie Flower"
         fontWeight={600}
         alignSelf="center"
         color="#495730 "
         mb={6}
-        mx={24}
         textAlign="justify"
       >
-        {selectedGames.description}
-      </Text>
+        <Text w="15%" color="#d64342">
+          Descrição:
+        </Text>
+        <Text bg="white" borderRadius="20px" p={4}>
+          {selectedGames.description}
+        </Text>
+      </HStack>
+      <HStack
+        w="70%"
+        gap={4}
+        fontSize="24px"
+        fontFamily="Indie Flower"
+        fontWeight={600}
+        alignSelf="center"
+        color="#495730 "
+        mb={6}
+        mx={36}
+        textAlign="justify"
+      >
+        <Text w="15%" color="#d64342">
+          Materiais:
+        </Text>
+        <List bg="white" borderRadius="20px" p={4} w="full">
+          {selectedGames.materials.map((item, index) => (
+            <ListItem key={index}>
+              <ListIcon verticalAlign="middle" as={FiCheck} />
+              {item}
+            </ListItem>
+          ))}
+        </List>
+      </HStack>
       <Image src={selectedGames.image} borderRadius="10%" width={"40%"} alignSelf="center" />
     </Stack>
   );

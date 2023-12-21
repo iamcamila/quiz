@@ -36,6 +36,12 @@ import Movie34 from "./34.jpg";
 import Movie35 from "./35.jpg";
 import Movie36 from "./36.jpg";
 import Movie37 from "./37.jpg";
+import Movie38 from "./38.jpg";
+import Movie39 from "./39.jpg";
+import Movie40 from "./40.jpg";
+import Movie41 from "./41.jpg";
+import Movie42 from "./42.jpg";
+import Movie43 from "./43.jpg";
 export const movies = [
   Movie0,
   Movie1,
@@ -75,4 +81,10 @@ export const movies = [
   Movie35,
   Movie36,
   Movie37,
+  Movie38,
+  Movie39,
+  Movie40,
+  Movie41,
+  Movie42,
+  Movie43,
 ];

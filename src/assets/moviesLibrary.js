@@ -229,6 +229,43 @@ export const moviesLibrary = {
       correctAnswer: "Madagascar",
       image: movies[37],
     },
+    {
+      hint: "👽🚲🌌",
+      genre: "ficção científica/infantil",
+      correctAnswer: "E.T., o Extraterrestre",
+      image: movies[38],
+    },
+    {
+      hint: "🦖🌴",
+      genre: "ficção científica/aventura",
+      correctAnswer: "Jurassic Park",
+      image: movies[39],
+    },
+    {
+      hint: "🎩🐇🎀",
+      genre: "fantasia/aventura",
+      correctAnswer: "Alice no País das Maravilhas",
+      image: movies[40],
+    },
+    {
+      hint: "🚗💨🏁😡",
+      genre: "ação/crime",
+      correctAnswer: "Velozes e Furiosos",
+      image: movies[41],
+    },
+    {
+      hint: "🚗🚕🚙",
+      genre: "comédia/animação",
+      correctAnswer: "Carros",
+      image: movies[42],
+    },
+    {
+      hint: "👳🏼‍♀️🛕🐒✨🔮🧞",
+      genre: "fantasia/musical",
+      correctAnswer: "Aladdin",
+      image: movies[43],
+    },
+
     // {
     //   hint: "",
     //   genre: "",

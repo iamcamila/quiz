@@ -58,6 +58,7 @@ export const MiniGames = () => {
               setShowRiddles(true);
               setShowWords(false);
               setCurrentGame("riddle");
+              setShowAnswer(false);
             }}
             bg="#e51836"
             justifyContent="center"
@@ -85,6 +86,7 @@ export const MiniGames = () => {
               setShowRiddles(false);
               setShowWords(true);
               setCurrentGame("word");
+              setShowAnswer(false);
             }}
             bg="#e51836"
             justifyContent="center"
